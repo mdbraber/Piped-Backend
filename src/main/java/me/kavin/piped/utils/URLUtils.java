@@ -87,10 +87,12 @@ public class URLUtils {
 
             for (String pair : pairs) {
                 int idx = pair.indexOf("=");
-                queryPairs.add(List.of(
-                        silentDecode(pair.substring(0, idx)),
-                        silentDecode(pair.substring(idx + 1))
-                ));
+                if (idx > 0) {
+                        queryPairs.add(List.of(
+                                silentDecode(pair.substring(0, idx)),
+                                silentDecode(pair.substring(idx + 1))
+                        ));
+                }
             }
         }
 
